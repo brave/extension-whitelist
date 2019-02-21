@@ -1,0 +1,33 @@
+{
+  "name": "extension-whitelist",
+  "version": "1.0.0",
+  "description": "C++ extension whitelist parser for Brave",
+  "main": "./build/Release/aw_node_addon",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "install": "node-gyp rebuild",
+    "preinstall": "npm install hashset-cpp",
+    "data-files": "node ./scripts/gen_data_file.js",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brave/extension-whitelist.git"
+  },
+  "author": "Mark Pilgrim <mpilgrim@brave.com>",
+  "license": "MPL-2.0",
+  "gypfile": true,
+  "bugs": {
+    "url": "https://github.com/brave/extension-whitelist/issues"
+  },
+  "homepage": "https://github.com/brave/extension-whitelist#readme",
+  "dependencies": {
+    "hashset-cpp": "^2.1.0",
+    "node-gyp": "^3.8.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
+}

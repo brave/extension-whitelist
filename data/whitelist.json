@@ -1,0 +1,126 @@
+{
+    "whitelist": [
+        {
+            "id": "aomjjhallfgjeglblehebfpbcfeobpgk",
+            "description": "1Password"
+        },
+        {
+            "id": "ajopnjidmegmdimjlfnijceegpefgped",
+            "description": "BetterTTV"
+        },
+        {
+            "id": "mfehgcgbbipciphmccgaenjidiccnmng",
+            "description": "Cloud Print"
+        },
+        {
+            "id": "kmendfapggjehodndflmmgagdbamhnfd",
+            "description": "CryptoTokenExtension"
+        },
+        {
+            "id": "nngceckbapebfimnlniiiahkandclblb",
+            "description": "Bitwarden"
+        },
+        {
+            "id": "cffkpbalmllkdoenhmdmpbkajipdjfam",
+            "description": "Brave Ad Block Updater"
+        },
+        {
+            "id": "afalakplffnnnlkncjhbmahjfjhmlkal",
+            "description": "Brave Local Data Files Updater"
+        },
+        {
+            "id": "cpoalefficncklhjfpglfiplenlpccdb",
+            "description": "Brave Tor Client Updater (Windows)"
+        },
+        {
+            "id": "cldoidikboihgcjfkhdeidbpclkineef",
+            "description": "Brave Tor Client Updater (Mac)"
+        },
+        {
+            "id": "biahpgbdmdkfgndcmfiipgcebobojjkp",
+            "description": "Brave Tor Client Updater (Linux)"
+        },
+        {
+            "id": "fdjamakpfbbddfjaooikfcpapjohcfmg",
+            "description": "Dashlane"
+        },
+        {
+            "id": "kmcfomidfpdkfieipokbalgegidffkal",
+            "description": "Enpass"
+        },
+        {
+            "id": "kbfnbcaeplbcioakkpcpgfkobkghlhen",
+            "description": "Grammarly for Chrome"
+        },
+        {
+            "id": "bmnlcjabgnpnenekpadlanbbkooimhnj",
+            "description": "Honey"
+        },
+        {
+            "id": "hdokiejnpimakedhajhdlcegeplioahd",
+            "description": "LastPass"
+        },
+        {
+            "id": "nkbihfbeogaeaoehlefnkodbefgpgknn",
+            "description": "MetaMask"
+        },
+        {
+            "id": "gpdjojdkbbmdfjfahjcgigfpmkopogic",
+            "description": "Pinterest"
+        },
+        {
+            "id": "niloccemoadcdkdjlinkgdfekeahmflj",
+            "description": "Pocket"
+        },
+        {
+            "id": "dbepggeogbaibhgnhhndojpepiihcmeb",
+            "description": "Vimium"
+        },
+        {
+            "id": "kbmfpngjjgdllneeigpgjifpgocmfgmb",
+            "description": "Reddit Enhancement Suite"
+        },
+        {
+            "id": "ahfgeienlihckogmohjhadlkjgocpleb",
+            "description": "Web Store"
+        },
+        {
+            "id": "aapnijgdinlhnhlmodcfapnahmbfebeb",
+            "description": "Brave Automation Extension"
+        },
+        {
+            "id": "naccapggpomhlhoifnlebfoocegenbol",
+            "description": "Test ID: Brave Default Ad Block Updater"
+        },
+        {
+            "id": "dlpmaigjliompnelofkljgcmlenklieh",
+            "description": "Test ID: Brave Regional Ad Block Updater (9852EFC4-99E4-4F2D-A915-9C3196C7A1DE)"
+        },
+        {
+            "id": "eclbkhjphkhalklhipiicaldjbnhdfkc",
+            "description": "Test ID: Brave Local Data Files Updater"
+        },
+        {
+            "id": "kpbdcmcgkedhpbcpfndimofjnefgjidd",
+            "description": "Test ID: PDFJS"
+        },
+        {
+            "id": "bhlmpjhncoojbkemjkeppfahkglffilp",
+            "description": "Test ID: Brave HTTPS Everywhere Updater"
+        },
+        {
+            "id": "ngicbhhaldfdgmjhilmnleppfpmkgbbk",
+            "description": "Test ID: Brave Tor Client Updater"
+        }
+    ],
+    "blacklist": [
+        {
+            "id": "mlklomjnahgiddgfdgjhibinlfibfffc",
+            "description": "Used for tests, corresponds to brave/test/data/should-be-blocked-extension."
+        },
+        {
+            "id": "mhjfbmdgcfjbbpaeojofohoefgiehjai",
+            "description": "Chromium PDF Viewer"
+        }
+    ]
+}

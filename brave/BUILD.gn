@@ -1,0 +1,28 @@
+if (is_android) {
+  import("//build/config/android/rules.gni")
+  dep_base = rebase_path("./", "//")
+} else {
+  dep_base = rebase_path("../..", "//")
+}
+
+config("external_config") {
+  include_dirs = [ ".." ]
+}
+
+config("internal_config") {
+}
+
+source_set("extension-whitelist") {
+  public_configs = [ ":external_config" ]
+  configs += [ ":internal_config" ]
+  sources = [
+    "../extension_whitelist_parser.cc",
+    "../extension_whitelist_parser.h",
+    "../extension_whitelist_data.cc",
+    "../extension_whitelist_data.h",
+  ]
+
+  deps = [
+    rebase_path("hashset-cpp/brave:hashset-cpp", dep_base),
+  ]
+}
