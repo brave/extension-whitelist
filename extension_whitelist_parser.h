@@ -9,6 +9,9 @@
 
 #include "./extension_whitelist_data.h"
 
+#define EXTENSION_DAT_FILE "ExtensionWhitelist.dat"
+#define EXTENSION_DAT_FILE_VERSION "1"
+
 template<class T>
 class HashSet;
 
