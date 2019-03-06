@@ -4,36 +4,36 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 /* global describe, it, before */
 
-var assert = require('assert');
-var CEWParser = require("../build/Release/ew_node_addon").CEWParser;
+const assert = require('assert')
+const CEWParser = require('../build/Release/ew_node_addon').CEWParser
 
 describe('Client populated from whitelist.json', function() {
     before(function() {
-        this.addon = new CEWParser();
-        fs = require("fs");
-        data = fs.readFileSync("data/whitelist.json", "utf8");
-        blacklist = JSON.parse(String(data))["blacklist"];
+        this.addon = new CEWParser()
+        fs = require('fs')
+        data = fs.readFileSync('data/whitelist.json', 'utf8')
+        blacklist = JSON.parse(String(data))['blacklist']
         for (var i in blacklist) {
-            this.addon.addToBlacklist(blacklist[i]["id"]);
-        };
-        whitelist = JSON.parse(String(data))["whitelist"];
+            this.addon.addToBlacklist(blacklist[i]['id'])
+        }
+        whitelist = JSON.parse(String(data))['whitelist']
         for (var i in whitelist) {
-            this.addon.addToWhitelist(whitelist[i]["id"]);
-        };
+            this.addon.addToWhitelist(whitelist[i]['id'])
+        }
     })
     it('should match blacklisted ID mhjfbmdgcfjbbpaeojofohoefgiehjai', function() {
-        assert(this.addon.isBlacklisted("mhjfbmdgcfjbbpaeojofohoefgiehjai"));
+        assert(this.addon.isBlacklisted('mhjfbmdgcfjbbpaeojofohoefgiehjai'))
     })
     it('should match blacklisted ID mlklomjnahgiddgfdgjhibinlfibfffc', function() {
-        assert(this.addon.isBlacklisted("mlklomjnahgiddgfdgjhibinlfibfffc"));
+        assert(this.addon.isBlacklisted('mlklomjnahgiddgfdgjhibinlfibfffc'))
     })
     it('should match whitelisted ID ngicbhhaldfdgmjhilmnleppfpmkgbbk', function() {
-        assert(this.addon.isWhitelisted("ngicbhhaldfdgmjhilmnleppfpmkgbbk"));
+        assert(this.addon.isWhitelisted('ngicbhhaldfdgmjhilmnleppfpmkgbbk'))
     })
     it('should not match unknown blacklisted ID', function() {
-        assert.equal(this.addon.isBlacklisted("a"), false);
+        assert.equal(this.addon.isBlacklisted('a'), false)
     })
     it('should not match unknown whitelisted ID', function() {
-        assert.equal(this.addon.isWhitelisted("b"), false);
+        assert.equal(this.addon.isWhitelisted('b'), false)
     })
-});
+})
