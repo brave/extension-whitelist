@@ -18,9 +18,9 @@ void ExtensionWhitelistParser::addToBlacklist(const char *extensionID) {
     return;
   ST_EXTENSION_WHITELIST_DATA extensionData;
   extensionData.sExtensionID = new char[strlen(extensionID) + 1];
-  strcpy(extensionData.sExtensionID, extensionID);
   if (nullptr == extensionData.sExtensionID)
     return;
+  strcpy(extensionData.sExtensionID, extensionID);
   mBlacklist->Add(extensionData);
 }
 
@@ -29,9 +29,9 @@ void ExtensionWhitelistParser::addToWhitelist(const char *extensionID) {
     return;
   ST_EXTENSION_WHITELIST_DATA extensionData;
   extensionData.sExtensionID = new char[strlen(extensionID) + 1];
-  strcpy(extensionData.sExtensionID, extensionID);
   if (nullptr == extensionData.sExtensionID)
     return;
+  strcpy(extensionData.sExtensionID, extensionID);
   mWhitelist->Add(extensionData);
 }
 
