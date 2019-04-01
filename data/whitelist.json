@@ -115,16 +115,16 @@
         {
             "id": "ngicbhhaldfdgmjhilmnleppfpmkgbbk",
             "description": "Test ID: Brave Tor Client Updater"
+        },
+        {
+            "id": "mhjfbmdgcfjbbpaeojofohoefgiehjai",
+            "description": "Chromium PDF Viewer"
         }
     ],
     "blacklist": [
         {
             "id": "mlklomjnahgiddgfdgjhibinlfibfffc",
             "description": "Used for tests, corresponds to brave/test/data/should-be-blocked-extension."
-        },
-        {
-            "id": "mhjfbmdgcfjbbpaeojofohoefgiehjai",
-            "description": "Chromium PDF Viewer"
         }
     ]
 }
