@@ -37,7 +37,7 @@
         "extension_whitelist_data.cc",
         "extension_whitelist_data.h",
         "./node_addon/EWParserWrap.h",
-        "./node_addon/EWParserWrap.cpp",
+        "./node_addon/EWParserWrap.cc",
         "./node_addon/addon.cpp",
         "./node_modules/hashset-cpp/test/hashFn.cc",
         "./node_modules/hashset-cpp/test/hashFn.h"
