@@ -21,8 +21,8 @@ describe('Client populated from whitelist.json', function() {
             this.addon.addToWhitelist(whitelist[i]['id'])
         }
     })
-    it('should match blacklisted ID mhjfbmdgcfjbbpaeojofohoefgiehjai', function() {
-        assert(this.addon.isBlacklisted('mhjfbmdgcfjbbpaeojofohoefgiehjai'))
+    it('should match whitelisted ID mhjfbmdgcfjbbpaeojofohoefgiehjai', function() {
+        assert(this.addon.isWhitelisted('mhjfbmdgcfjbbpaeojofohoefgiehjai'))
     })
     it('should match blacklisted ID mlklomjnahgiddgfdgjhibinlfibfffc', function() {
         assert(this.addon.isBlacklisted('mlklomjnahgiddgfdgjhibinlfibfffc'))
