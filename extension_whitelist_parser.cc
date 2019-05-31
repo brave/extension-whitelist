@@ -85,6 +85,10 @@ char* ExtensionWhitelistParser::serialize(unsigned int* totalSize) {
     return result;
 }
 
+bool ExtensionWhitelistParser::deserialize(char *buffer, size_t) {
+  return deserialize(buffer);
+}
+
 bool ExtensionWhitelistParser::deserialize(char *buffer) {
   if (!buffer)
     return false;
