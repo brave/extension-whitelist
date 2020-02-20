@@ -6,6 +6,7 @@
 #define EXTENSION_WHITELIST_PARSER_H_
 
 #include <memory>
+#include <assert.h>
 
 #include "./extension_whitelist_data.h"
 

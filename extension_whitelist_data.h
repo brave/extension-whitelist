@@ -5,42 +5,35 @@
 #ifndef EXTENSION_WHITELIST_DATA_H_
 #define EXTENSION_WHITELIST_DATA_H_
 
+#include <assert.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
 
+#define EXTENSION_ID_LEN 32
+
 struct ST_EXTENSION_WHITELIST_DATA {
 public:
   ST_EXTENSION_WHITELIST_DATA():
-    sExtensionID(nullptr) {
+    sExtensionID() {
+    *sExtensionID = '\0';
   }
 
   ST_EXTENSION_WHITELIST_DATA(const ST_EXTENSION_WHITELIST_DATA &other) {
-    if (nullptr == other.sExtensionID) {
-      return;
-    }
-
-    sExtensionID = new char[strlen(other.sExtensionID) + 1];
-    strcpy(sExtensionID, other.sExtensionID);
+    strncpy(sExtensionID, other.sExtensionID, EXTENSION_ID_LEN + 1);
   }
 
-  ~ST_EXTENSION_WHITELIST_DATA() {
-    if (nullptr != sExtensionID) {
-      delete []sExtensionID;
-    }
+  ST_EXTENSION_WHITELIST_DATA(const char *other) {
+    assert(strlen(other) == EXTENSION_ID_LEN);
+    strncpy(sExtensionID, other, EXTENSION_ID_LEN + 1);
   }
+
+  ~ST_EXTENSION_WHITELIST_DATA() {}
 
   uint64_t GetHash() const;
 
   bool operator==(const ST_EXTENSION_WHITELIST_DATA &rhs) const {
-    int extensionLen = static_cast<int>(strlen(sExtensionID));
-    int rhsExtensionIDLen = static_cast<int>(strlen(rhs.sExtensionID));
-
-    if (extensionLen != rhsExtensionIDLen) {
-      return false;
-    }
-
-    return !memcmp(sExtensionID, rhs.sExtensionID, extensionLen);
+    return !memcmp(sExtensionID, rhs.sExtensionID, EXTENSION_ID_LEN);
   }
 
   // Nothing needs to be updated when an extension is added multiple times
@@ -51,7 +44,6 @@ public:
 
     char sz[32];
     uint32_t dataLenSize = 1 + snprintf(sz, sizeof(sz), "%x", (unsigned int)strlen(sExtensionID));
-
     if (buffer) {
       memcpy(buffer + size, sz, dataLenSize);
     }
@@ -73,14 +65,7 @@ public:
     }
     unsigned int extensionLength = 0;
     sscanf(buffer, "%x", &extensionLength);
-    if (sExtensionID) {
-      delete []sExtensionID;
-    }
     size = static_cast<uint32_t>(strlen(buffer) + 1);
-    sExtensionID = new char[extensionLength + 1];
-    if (!sExtensionID) {
-      return size;
-    }
     memcpy(sExtensionID, buffer + size, extensionLength);
     sExtensionID[extensionLength] = '\0';
     size += extensionLength;
@@ -88,7 +73,7 @@ public:
     return size;
   }
 
-  char* sExtensionID;
+  char sExtensionID[EXTENSION_ID_LEN + 1];
 };
 
 #endif  // EXTENSION_WHITELIST_DATA_H_

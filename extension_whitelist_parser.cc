@@ -14,42 +14,34 @@ ExtensionWhitelistParser::~ExtensionWhitelistParser() {
 }
 
 void ExtensionWhitelistParser::addToBlacklist(const char *extensionID) {
-  if (nullptr == extensionID)
+  if (!extensionID || strlen(extensionID) != EXTENSION_ID_LEN)
     return;
-  ST_EXTENSION_WHITELIST_DATA extensionData;
-  extensionData.sExtensionID = new char[strlen(extensionID) + 1];
-  if (nullptr == extensionData.sExtensionID)
-    return;
-  strcpy(extensionData.sExtensionID, extensionID);
+
+  ST_EXTENSION_WHITELIST_DATA extensionData(extensionID);
   mBlacklist->Add(extensionData);
 }
 
 void ExtensionWhitelistParser::addToWhitelist(const char *extensionID) {
-  if (nullptr == extensionID)
+  if (!extensionID || strlen(extensionID) != EXTENSION_ID_LEN)
     return;
-  ST_EXTENSION_WHITELIST_DATA extensionData;
-  extensionData.sExtensionID = new char[strlen(extensionID) + 1];
-  if (nullptr == extensionData.sExtensionID)
-    return;
-  strcpy(extensionData.sExtensionID, extensionID);
+
+  ST_EXTENSION_WHITELIST_DATA extensionData(extensionID);
   mWhitelist->Add(extensionData);
 }
 
 bool ExtensionWhitelistParser::isBlacklisted(const char *extensionID) {
-  ST_EXTENSION_WHITELIST_DATA extensionData;
-  extensionData.sExtensionID = new char[strlen(extensionID) + 1];
-  if (nullptr == extensionData.sExtensionID)
+  if (!extensionID || strlen(extensionID) != EXTENSION_ID_LEN)
     return false;
-  strcpy(extensionData.sExtensionID, extensionID);
+
+  ST_EXTENSION_WHITELIST_DATA extensionData(extensionID);
   return mBlacklist->Exists(extensionData);
 }
 
 bool ExtensionWhitelistParser::isWhitelisted(const char *extensionID) {
-  ST_EXTENSION_WHITELIST_DATA extensionData;
-  extensionData.sExtensionID = new char[strlen(extensionID) + 1];
-  if (nullptr == extensionData.sExtensionID)
+  if (!extensionID || strlen(extensionID) != EXTENSION_ID_LEN)
     return false;
-  strcpy(extensionData.sExtensionID, extensionID);
+
+  ST_EXTENSION_WHITELIST_DATA extensionData(extensionID);
   return mWhitelist->Exists(extensionData);
 }
 

@@ -8,9 +8,9 @@
 static HashFn sHashFn(19);
 
 uint64_t ST_EXTENSION_WHITELIST_DATA::GetHash() const {
-  if (!sExtensionID) {
+  if ('\0' == *sExtensionID) {
     return 0;
   }
 
-  return sHashFn(sExtensionID, static_cast<int>(strlen(sExtensionID)));
+  return sHashFn(sExtensionID, EXTENSION_ID_LEN);
 }
