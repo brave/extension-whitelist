@@ -40,37 +40,19 @@ public:
   void Update(const ST_EXTENSION_WHITELIST_DATA &) {}
 
   uint32_t Serialize(char* buffer) {
-    uint32_t size = 0;
-
-    char sz[32];
-    uint32_t dataLenSize = 1 + snprintf(sz, sizeof(sz), "%x", (unsigned int)strlen(sExtensionID));
     if (buffer) {
-      memcpy(buffer + size, sz, dataLenSize);
+      memcpy(buffer, sExtensionID, EXTENSION_ID_LEN);
     }
-    size += dataLenSize;
-
-    if (buffer) {
-      memcpy(buffer + size, sExtensionID, strlen(sExtensionID));
-    }
-    size += static_cast<uint32_t>(strlen(sExtensionID));
-
-    return size;
+    return EXTENSION_ID_LEN;
   }
 
   uint32_t Deserialize(char *buffer, uint32_t bufferSize) {
-    uint32_t size = 0;
-
-    if (!buffer || 0 == bufferSize) {
-      return size;
+    if (!buffer || 0 == buffer) {
+      return 0;
     }
-    unsigned int extensionLength = 0;
-    sscanf(buffer, "%x", &extensionLength);
-    size = static_cast<uint32_t>(strlen(buffer) + 1);
-    memcpy(sExtensionID, buffer + size, extensionLength);
-    sExtensionID[extensionLength] = '\0';
-    size += extensionLength;
-
-    return size;
+    memcpy(sExtensionID, buffer, EXTENSION_ID_LEN);
+    sExtensionID[EXTENSION_ID_LEN] = '\0';
+    return EXTENSION_ID_LEN;
   }
 
   char sExtensionID[EXTENSION_ID_LEN + 1];
