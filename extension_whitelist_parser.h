@@ -6,12 +6,20 @@
 #define EXTENSION_WHITELIST_PARSER_H_
 
 #include <memory>
+#include <cinttypes>
 #include <assert.h>
 
 #include "./extension_whitelist_data.h"
 
 #define EXTENSION_DAT_FILE "ExtensionWhitelist.dat"
 #define EXTENSION_DAT_FILE_VERSION "1"
+
+/* Taken from systemd, src/basic/macro.h */
+#define DECIMAL_STR_MAX(type) \
+  (2+(sizeof(type) <= 1 ? 3 : \
+  sizeof(type) <= 2 ? 5 : \
+  sizeof(type) <= 4 ? 10 : \
+  sizeof(type) <= 8 ? 20 : sizeof(int[-2*(sizeof(type) > 8)])))
 
 template<class T>
 class HashSet;

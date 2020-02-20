@@ -52,8 +52,8 @@ char* ExtensionWhitelistParser::serialize(unsigned int* totalSize) {
   char* blacklist = mBlacklist->Serialize(&blacklistSize);
   uint32_t whitelistSize = 0;
   char* whitelist = mWhitelist->Serialize(&whitelistSize);
-  *totalSize = sizeof(blacklistSize) + blacklistSize + 1 +
-    sizeof(whitelistSize) + whitelistSize + 1;
+  *totalSize = DECIMAL_STR_MAX(uint32_t) + blacklistSize + 1 +
+    DECIMAL_STR_MAX(uint32_t) + whitelistSize + 1;
   unsigned int pos = 0;
   char* result = new char[*totalSize];
   if (!result) {
@@ -62,14 +62,11 @@ char* ExtensionWhitelistParser::serialize(unsigned int* totalSize) {
     return nullptr;
   }
   memset(result, 0, *totalSize);
-  char sz[32];
-  uint32_t dataLenSize = 1 + snprintf(sz, sizeof(sz), "%x", blacklistSize);
-  memcpy(result + pos, sz, dataLenSize);
+  uint32_t dataLenSize = 1 + sprintf(result + pos, "%" PRIu32, blacklistSize);
   pos += dataLenSize;
   memcpy(result + pos, blacklist, blacklistSize);
   pos += blacklistSize;
-  dataLenSize = 1 + snprintf(sz, sizeof(sz), "%x", whitelistSize);
-  memcpy(result + pos, sz, dataLenSize);
+  dataLenSize = 1 + sprintf(result + pos, "%" PRIu32, whitelistSize);
   pos += dataLenSize;
   memcpy(result + pos, whitelist, whitelistSize);
   delete []blacklist;
@@ -86,13 +83,13 @@ bool ExtensionWhitelistParser::deserialize(char *buffer) {
     return false;
   uint32_t blacklistSize = 0;
   unsigned int pos = 0;
-  sscanf(buffer, "%x", &blacklistSize);
+  sscanf(buffer, "%" SCNu32, &blacklistSize);
   pos += static_cast<uint32_t>(strlen(buffer) + 1);
   if (!mBlacklist->Deserialize(buffer + pos, blacklistSize))
     return false;
   pos += blacklistSize;
   uint32_t whitelistSize = 0;
-  sscanf(buffer + pos, "%x", &whitelistSize);
+  sscanf(buffer + pos, "%" SCNu32, &whitelistSize);
   pos += static_cast<uint32_t>(strlen(buffer + pos) + 1);
   if (!mWhitelist->Deserialize(buffer + pos, whitelistSize)) {
     return false;
