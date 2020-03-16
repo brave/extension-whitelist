@@ -8,12 +8,6 @@ You can view both lists in the [`whitelist.json`](https://github.com/brave/exten
 
 The rest of this README is for Brave developers who need to work with this code, or any developer who wants to use it in their own project.
 
-## Setup
-
-```
-npm install --save extension-whitelist
-```
-
 ## Installation
 
 1. Clone the git repository from GitHub:
