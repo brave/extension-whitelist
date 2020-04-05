@@ -2,12 +2,11 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "./extension_whitelist_parser.h"
-#include "hash_set.h"
+#include "extension_whitelist_parser.h"
 
 ExtensionWhitelistParser::ExtensionWhitelistParser() {
-  mBlacklist.reset(new HashSet<ST_EXTENSION_WHITELIST_DATA>(256, false));
-  mWhitelist.reset(new HashSet<ST_EXTENSION_WHITELIST_DATA>(256, false));
+  mBlacklist = std::make_unique<ExtensionSet>();
+  mWhitelist = std::make_unique<ExtensionSet>();
 }
 
 ExtensionWhitelistParser::~ExtensionWhitelistParser() {
@@ -17,7 +16,7 @@ void ExtensionWhitelistParser::addToBlacklist(const char *extensionID) {
   if (!extensionID || strlen(extensionID) != EXTENSION_ID_LEN)
     return;
 
-  ST_EXTENSION_WHITELIST_DATA extensionData(extensionID);
+  std::string extensionData(extensionID);
   mBlacklist->Add(extensionData);
 }
 
@@ -25,7 +24,7 @@ void ExtensionWhitelistParser::addToWhitelist(const char *extensionID) {
   if (!extensionID || strlen(extensionID) != EXTENSION_ID_LEN)
     return;
 
-  ST_EXTENSION_WHITELIST_DATA extensionData(extensionID);
+  std::string extensionData(extensionID);
   mWhitelist->Add(extensionData);
 }
 
@@ -33,7 +32,7 @@ bool ExtensionWhitelistParser::isBlacklisted(const char *extensionID) {
   if (!extensionID || strlen(extensionID) != EXTENSION_ID_LEN)
     return false;
 
-  ST_EXTENSION_WHITELIST_DATA extensionData(extensionID);
+  std::string extensionData(extensionID);
   return mBlacklist->Exists(extensionData);
 }
 
@@ -41,7 +40,7 @@ bool ExtensionWhitelistParser::isWhitelisted(const char *extensionID) {
   if (!extensionID || strlen(extensionID) != EXTENSION_ID_LEN)
     return false;
 
-  ST_EXTENSION_WHITELIST_DATA extensionData(extensionID);
+  std::string extensionData(extensionID);
   return mWhitelist->Exists(extensionData);
 }
 
@@ -85,14 +84,11 @@ bool ExtensionWhitelistParser::deserialize(char *buffer) {
   unsigned int pos = 0;
   sscanf(buffer, "%" SCNu32, &blacklistSize);
   pos += static_cast<uint32_t>(strlen(buffer) + 1);
-  if (!mBlacklist->Deserialize(buffer + pos, blacklistSize))
-    return false;
+  mBlacklist->Deserialize(buffer + pos, blacklistSize);
   pos += blacklistSize;
   uint32_t whitelistSize = 0;
   sscanf(buffer + pos, "%" SCNu32, &whitelistSize);
   pos += static_cast<uint32_t>(strlen(buffer + pos) + 1);
-  if (!mWhitelist->Deserialize(buffer + pos, whitelistSize)) {
-    return false;
-  }
+  mWhitelist->Deserialize(buffer + pos, whitelistSize);
   return true;
 }

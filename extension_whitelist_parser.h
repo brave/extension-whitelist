@@ -5,11 +5,12 @@
 #ifndef EXTENSION_WHITELIST_PARSER_H_
 #define EXTENSION_WHITELIST_PARSER_H_
 
-#include <memory>
-#include <cinttypes>
 #include <assert.h>
+#include <cinttypes>
+#include <memory>
+#include <unordered_set>
 
-#include "./extension_whitelist_data.h"
+#include "extension_set.h"
 
 #define EXTENSION_DAT_FILE "ExtensionWhitelist.dat"
 #define EXTENSION_DAT_FILE_VERSION "1"
@@ -44,8 +45,8 @@ public:
   bool deserialize(char *buffer, size_t);
 
 private:
-  std::unique_ptr<HashSet<ST_EXTENSION_WHITELIST_DATA> > mBlacklist;
-  std::unique_ptr<HashSet<ST_EXTENSION_WHITELIST_DATA> > mWhitelist;
+  std::unique_ptr<ExtensionSet> mBlacklist;
+  std::unique_ptr<ExtensionSet> mWhitelist;
 };
 
 #endif  // EXTENSION_WHITELIST_PARSER_H_
