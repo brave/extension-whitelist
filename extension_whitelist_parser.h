@@ -6,24 +6,22 @@
 #define EXTENSION_WHITELIST_PARSER_H_
 
 #include <assert.h>
+#include <string.h>
 #include <cinttypes>
+#include <string>
 #include <memory>
 #include <unordered_set>
 
-#include "extension_set.h"
-
 #define EXTENSION_DAT_FILE "ExtensionWhitelist.dat"
 #define EXTENSION_DAT_FILE_VERSION "1"
+#define EXTENSION_ID_LEN 32
 
-/* Taken from systemd, src/basic/macro.h */
-#define DECIMAL_STR_MAX(type) \
-  (2+(sizeof(type) <= 1 ? 3 : \
-  sizeof(type) <= 2 ? 5 : \
-  sizeof(type) <= 4 ? 10 : \
-  sizeof(type) <= 8 ? 20 : sizeof(int[-2*(sizeof(type) > 8)])))
+#define UINT32_SERIALIZE_MAX 10
 
-template<class T>
-class HashSet;
+namespace {
+std::string Serialize(std::unordered_set<std::string>& set, uint32_t* size);
+void Deserialize(std::unordered_set<std::string>& set, const char* buffer, uint32_t size);
+}
 
 class ExtensionWhitelistParser {
 public:
@@ -41,12 +39,12 @@ public:
 
   // Deserializes the buffer, a size is not needed since a serialized
   // buffer is self described
-  bool deserialize(char *buffer);
-  bool deserialize(char *buffer, size_t);
+  bool deserialize(const char* buffer);
+  bool deserialize(const char* buffer, size_t);
 
 private:
-  std::unique_ptr<ExtensionSet> mBlacklist;
-  std::unique_ptr<ExtensionSet> mWhitelist;
+  std::unordered_set<std::string> mBlacklist;
+  std::unordered_set<std::string> mWhitelist;
 };
 
 #endif  // EXTENSION_WHITELIST_PARSER_H_

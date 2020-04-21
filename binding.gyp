@@ -5,8 +5,6 @@
     "sources": [
       "extension_whitelist_parser.cc",
       "extension_whitelist_parser.h",
-      "extension_set.cc",
-      "extension_set.h",
     ],
     "include_dirs": [
       ".",
@@ -32,8 +30,6 @@
       "sources": [
         "extension_whitelist_parser.cc",
         "extension_whitelist_parser.h",
-        "extension_set.cc",
-        "extension_set.h",
         "./node_addon/EWParserWrap.h",
         "./node_addon/EWParserWrap.cc",
         "./node_addon/addon.cpp",
