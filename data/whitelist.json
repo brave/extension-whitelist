@@ -101,6 +101,10 @@
             "description": "Tab Defrag"
         },
         {
+            "id": "gphhapmejobijbbhgpjhcjognlahblep",
+            "description": "GNOME Shell integration"
+        },
+        {
             "id": "naccapggpomhlhoifnlebfoocegenbol",
             "description": "Test ID: Brave Default Ad Block Updater"
         },
