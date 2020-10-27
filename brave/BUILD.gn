@@ -14,11 +14,8 @@ source_set("extension-whitelist") {
   sources = [
     "../extension_whitelist_parser.cc",
     "../extension_whitelist_parser.h",
-    "../extension_whitelist_data.cc",
-    "../extension_whitelist_data.h",
   ]
 
   deps = [
-    rebase_path("hashset-cpp/brave:hashset-cpp", dep_base),
   ]
 }
