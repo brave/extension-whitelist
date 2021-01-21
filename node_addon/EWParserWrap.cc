@@ -51,7 +51,8 @@ namespace EWParserWrap {
     NODE_SET_PROTOTYPE_METHOD(tpl, "cleanup", CEWParserWrap::Cleanup);
 
     constructor.Reset(isolate, tpl->GetFunction(isolate->GetCurrentContext()).ToLocalChecked());
-    exports->Set(String::NewFromUtf8(isolate, "CEWParser", NewStringType::kNormal).ToLocalChecked(),
+    exports->Set(isolate->GetCurrentContext(),
+                 String::NewFromUtf8(isolate, "CEWParser", NewStringType::kNormal).ToLocalChecked(),
                  tpl->GetFunction(isolate->GetCurrentContext()).ToLocalChecked());
   }
 
