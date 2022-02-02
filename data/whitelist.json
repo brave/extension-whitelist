@@ -109,6 +109,10 @@
             "description": "GNOME Shell integration"
         },
         {
+            "id": "nimfmkdcckklbkhjjkmbjfcpaiifgamg",
+            "description": "Brave Talk for Google Calendar"
+        },
+        {
             "id": "naccapggpomhlhoifnlebfoocegenbol",
             "description": "Test ID: Brave Default Ad Block Updater"
         },

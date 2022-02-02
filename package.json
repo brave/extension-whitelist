@@ -29,6 +29,6 @@
     "node-gyp": "^8.4.1"
   },
   "devDependencies": {
-    "mocha": "^7.1"
+    "mocha": "^9.2.0"
   }
 }
