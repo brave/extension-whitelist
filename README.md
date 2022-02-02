@@ -39,3 +39,7 @@ npm run data-files
 ```
 npm run test
 ```
+
+## Trigger a CI build
+
+Look for the `brave-core-ext-local-data-files-update-publish` in CI and start a build manually.
