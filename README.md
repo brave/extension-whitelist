@@ -42,4 +42,6 @@ npm run test
 
 ## Trigger a CI build
 
-Look for the `brave-core-ext-local-data-files-update-publish` in CI and start a build manually.
+The `brave-core-ext-local-data-files-update-publish` in CI polls the [`brave/brave-core-crx-packager` repository](https://github.com/brave/brave-core-crx-packager) once a day and makes a new build of the *Brave Local Data Updater* component if there are any new commits on `master`. A build can also be started manually there.
+
+Renovate is supposed to be watching all dependent repositories (such as `brave/extension-whitelist`) for changes and to propose a PR on `brave/brave-core-crx-packager` to update `package-lock.json` (and `package.json` as needed) when one of the dependencies needs to be updated. If that doesn't happen for some reason, a manual PR can be created and merged. See https://github.com/brave/brave-core-crx-packager/pull/316 for an example.
