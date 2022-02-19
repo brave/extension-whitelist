@@ -143,10 +143,6 @@
     ],
     "blacklist": [
         {
-            "id": "eojdckfcadamkapabechhbnkleligand",
-            "description": "Creates a Facebook access token in user's account without permission prompt."
-        },
-        {
             "id": "mlklomjnahgiddgfdgjhibinlfibfffc",
             "description": "Used for tests, corresponds to brave/test/data/should-be-blocked-extension."
         }
