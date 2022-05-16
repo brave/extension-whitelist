@@ -125,6 +125,10 @@
             "description": "NoScript"
         },
         {
+            "id": "gcbommkclmclpchllfjekcdonpmejbdp",
+            "description": "HTTPS Everywhere"
+        },
+        {
             "id": "naccapggpomhlhoifnlebfoocegenbol",
             "description": "Test ID: Brave Default Ad Block Updater"
         },
