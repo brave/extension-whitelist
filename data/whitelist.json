@@ -113,6 +113,18 @@
             "description": "Brave Talk for Google Calendar"
         },
         {
+            "id": "cjpalhdlnbpafiamejdnhcphjbkeiagm",
+            "description": "uBlock Origin"
+        },
+        {
+            "id": "ogfcmafjalglgifnmanfmnieipoejdcf",
+            "description": "uMatrix"
+        },
+        {
+            "id": "doojmbjmlfjjnbmnoijecmcbfeoakpjm",
+            "description": "NoScript"
+        },
+        {
             "id": "naccapggpomhlhoifnlebfoocegenbol",
             "description": "Test ID: Brave Default Ad Block Updater"
         },
