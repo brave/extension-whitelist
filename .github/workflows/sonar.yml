@@ -20,6 +20,8 @@ jobs:
         with:
           node-version: 16
 
+      - run: which npm
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
