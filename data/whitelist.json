@@ -1,34 +1,6 @@
 {
     "whitelist": [
         {
-            "id": "aomjjhallfgjeglblehebfpbcfeobpgk",
-            "description": "1Password"
-        },
-        {
-            "id": "aeblfdkhhhdcdjpifhhbdiojplfjncoa",
-            "description": "1PasswordX"
-        },
-        {
-            "id": "khgocmkkpikpnmmkgmdnfckapcdkgfaf",
-            "description": "1PasswordX Beta"
-        },
-        {
-            "id": "ajopnjidmegmdimjlfnijceegpefgped",
-            "description": "BetterTTV"
-        },
-        {
-            "id": "mfehgcgbbipciphmccgaenjidiccnmng",
-            "description": "Cloud Print"
-        },
-        {
-            "id": "kmendfapggjehodndflmmgagdbamhnfd",
-            "description": "CryptoTokenExtension"
-        },
-        {
-            "id": "nngceckbapebfimnlniiiahkandclblb",
-            "description": "Bitwarden"
-        },
-        {
             "id": "cffkpbalmllkdoenhmdmpbkajipdjfam",
             "description": "Brave Ad Block Updater"
         },
@@ -49,42 +21,6 @@
             "description": "Brave Tor Client Updater (Linux)"
         },
         {
-            "id": "fdjamakpfbbddfjaooikfcpapjohcfmg",
-            "description": "Dashlane"
-        },
-        {
-            "id": "kmcfomidfpdkfieipokbalgegidffkal",
-            "description": "Enpass"
-        },
-        {
-            "id": "kbfnbcaeplbcioakkpcpgfkobkghlhen",
-            "description": "Grammarly for Chrome"
-        },
-        {
-            "id": "hdokiejnpimakedhajhdlcegeplioahd",
-            "description": "LastPass"
-        },
-        {
-            "id": "nkbihfbeogaeaoehlefnkodbefgpgknn",
-            "description": "MetaMask"
-        },
-        {
-            "id": "niloccemoadcdkdjlinkgdfekeahmflj",
-            "description": "Pocket"
-        },
-        {
-            "id": "dbepggeogbaibhgnhhndojpepiihcmeb",
-            "description": "Vimium"
-        },
-        {
-            "id": "kbmfpngjjgdllneeigpgjifpgocmfgmb",
-            "description": "Reddit Enhancement Suite"
-        },
-        {
-            "id": "ahfgeienlihckogmohjhadlkjgocpleb",
-            "description": "Web Store"
-        },
-        {
             "id": "aapnijgdinlhnhlmodcfapnahmbfebeb",
             "description": "Brave Automation Extension"
         },
@@ -93,32 +29,8 @@
             "description": "Brave HTTPS Everywhere Updater"
         },
         {
-            "id": "dfeliknbmopheafjaelmilpgfmfjiopl",
-            "description": "Tab Defrag"
-        },
-        {
-            "id": "gphhapmejobijbbhgpjhcjognlahblep",
-            "description": "GNOME Shell integration"
-        },
-        {
             "id": "nimfmkdcckklbkhjjkmbjfcpaiifgamg",
             "description": "Brave Talk for Google Calendar"
-        },
-        {
-            "id": "cjpalhdlnbpafiamejdnhcphjbkeiagm",
-            "description": "uBlock Origin"
-        },
-        {
-            "id": "ogfcmafjalglgifnmanfmnieipoejdcf",
-            "description": "uMatrix"
-        },
-        {
-            "id": "doojmbjmlfjjnbmnoijecmcbfeoakpjm",
-            "description": "NoScript"
-        },
-        {
-            "id": "gcbommkclmclpchllfjekcdonpmejbdp",
-            "description": "HTTPS Everywhere"
         },
         {
             "id": "mafpmfcccpbjnhfhjnllmmalhifmlcie",
