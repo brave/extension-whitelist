@@ -1,6 +1,10 @@
 {
     "whitelist": [
         {
+            "id": "mfehgcgbbipciphmccgaenjidiccnmng",
+            "description": "Cloud Print"
+        },
+        {
             "id": "cffkpbalmllkdoenhmdmpbkajipdjfam",
             "description": "Brave Ad Block Updater"
         },
